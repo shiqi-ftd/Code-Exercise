@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html ng-app= "wehouse">
+	<head>
+	
+	<meta charset="UTF-8">
+	<meta name="description" content="WE Housing Minneapolis Apartments">
+	<meta name="keywords" content="WE Housing, Rent Apartment, Coupon, Discount, Chinese, University of Minnesota - Twin Cities, UMN">
+	<meta name="author" content="Shiqi Zhong">
+	<!-- 	For Bing SEO webmaster-->
+ 	<meta name="msvalidate.01" content="CBB4D661C5DD2CE2F42D6B2E64F8F5FB" />
+
+	<title>WE Housing Minneapolis Apartments</title>
+
+	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/wehouse.js"></script>
+
+	<script type="text/javascript" src="js/js?libraries=placeses,visualization,drawing,geometry,places"></script>
+	<script type="text/javascript" src="js/ng-map.js"></script>
+
+
+	<link href="css/bootstrap-combined.min.css" rel="stylesheet" media="screen">    
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="shortcut icon" type="image/x-icon" href="img/ICO-file.png" />
+
+	</head>
+  
+  <body>
+    <div class="container-fluid">
+	<div class="row-fluid" ng-controller = "aptList as apts" >
+		<div class="span12">
+		
+			<div class="list-group">
+				<div class="list-group-item active" id="list-group-title">
+					<p>
+						{{apts.cityInfo}}: {{apts.aptList.length}} apartment <Font size="5px"> 
+					</p>
+					<br>
+					<div  style = "text-align:right;">
+						<button id="sort-btn-popularity" class="btn btn-warning active" type="button" ng-click="apts.sortByPopular()">Popularity</button>
+						<button id="sort-btn-price" class="btn btn-default active" type="button" ng-click="apts.sortByPrice()">Price</button>
+					</div>
+				</div>
+				<div class="list-group-item" ng-repeat="apt in apts.aptList | pagination: apts.pageIdx * apts.perPage | limitTo: apts.perPage |filter:searchText" >
+					<table class="list-group-item-text">
+						<tr class = "show-img-tr">
+							<td class = "show-img-td" rowspan="5" colspan="1"><img alt="" ng-src="{{apt.image}}"> </td>
+						</tr>
+						<tr class="show-apt-name">
+							<td colspan="2"><a href="#" ng-click="apts.selectApt(apt)" data-toggle="modal" data-target="#popBox"><h3>{{apt.name}}</h3></a></td>
+						</tr>
+				
+						<tr>
+							<td colspan= "2"> <p>{{apt.lineFirst}}</p></td>
+						</tr>
+						<tr>
+							<td colspan= "2"> <p> {{apt.lineTwo}}</p></td>
+						</tr>
+						<tr>
+							<td colspan = "2" class = "show-apt-price">
+								<p> 
+									<font size="2 px" color="#FFA500">From</font> <font size="8px" color="#FFA500" font-weight="bold">${{apt.price}}</font> 
+								</p> 
+								<p> <font color="#FFA500" size="2px">USD/Month</font></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				
+				<div class="pagination pagination-centered" ng-show="apts.aptList.length">
+					<ul class="pagination-controle pagination">
+ 						<li>
+ 							<span>Showing page {{apts.pageIdx + 1}} of {{ apts.numberOfPages }} pages </span>
+ 						</li><br>
+ 						<li>
+  							<button type="button" class="btn btn-primary active" ng-disabled="apts.pageIdx == 0" ng-click="apts.pageIdx=apts.pageIdx-1"> &lt;&lt;</button>
+ 						</li>
+ 						<li>
+ 							<button type="button" class="btn btn-primary active" ng-disabled="apts.pageIdx >= apts.numberOfPages - 1" ng-click="apts.pageIdx = apts.pageIdx+1"> &gt;&gt;</button>
+						</li>
+					</ul>				            
+
+				</div>
+				<!-- Pop Modal -->
+				<div class="modal fade" id="popBox" tabindex="-1" role="dialog" 
+					   aria-labelledby="myModalLabel" aria-hidden="true">
+					   <div class="modal-dialog">
+					      <div class="modal-content">
+					      	<div class="modal-left">
+						         <div class="modal-header">
+						            <button type="button" class="close" 
+						               data-dismiss="modal" aria-hidden="true">
+						                  &times;
+						            </button>
+						            <h4 class="modal-title" id="myModalLabel">
+										{{ apts.curApt.name }} 						            
+									</h4>
+									<p>
+										{{ apts.curApt.description }}					            
+										<font size="4px" color="#FFA500" font-weight="bold">price: {{ apts.curApt.price }}</font>					            
+										<font size="4px" color="#FFA500" font-weight="bold">popularity: {{ apts.curApt.popularity }}</font>
+									</p>
+						         </div>
+						         <div class="modal-body">
+										<img alt="" ng-src="{{apts.curApt.image}}">					         
+								 </div>
+							</div>
+							<div class="modal-right">
+							 	<ng-map center="[40.74, -74.18]" style="display: block; height:455px;"></ng-map>
+							</div>
+							<div class="clearfix"></div>
+					         <div class="modal-footer">
+					            <button type="button" class="btn btn-default" 
+					               data-dismiss="modal">Close
+					            </button>
+					            <button type="button" class="btn btn-primary">
+					               Add to Bookmarks
+					            </button>
+					         </div>
+					      </div>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<!-- 	For Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-43737917-1', 'utk.edu');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+</html>

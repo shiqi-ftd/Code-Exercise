@@ -1,0 +1,90 @@
+{
+    "apartments": [
+        {
+        	"name": "The Pavilion on Berry",
+        	"image": "img/image-1.jpg",
+        	"price": 512,
+        	"popularity": 4,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {        	
+        	"name": "Radius @15th",
+        	"image": "img/image-3.jpg",
+        	"price": 492,
+        	"popularity": 5,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+
+        	"name": "416 Lofts",
+        	"image": "img/image-2.jpg",
+        	"price": 460,
+        	"popularity": 3,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+
+        	"name": "Edge on Oak",
+        	"image": "img/image-4.jpg",
+        	"price": 532,
+        	"popularity": 7,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "The Heights",
+        	"image": "img/image-5.jpg",
+        	"price": 438,
+        	"popularity": 8,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Gateway",
+        	"image": "img/image-6.jpg",
+        	"price": 380,
+        	"popularity": 6,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Country Oaks",
+        	"image": "img/image-7.jpg",
+        	"price": 350,
+        	"popularity": 3,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Greystone Summit",
+        	"image": "img/image-8.jpg",
+        	"price": 450,
+        	"popularity": 8,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Wood",
+        	"image": "img/image-9.jpg",
+        	"price": 555,
+        	"popularity": 5,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Forest Ridge",
+        	"image": "img/image-10.jpg",
+        	"price": 538,
+        	"popularity": 9,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "Eagle Pointe",
+        	"image": "img/image-11.jpg",
+        	"price": 638,
+        	"popularity": 5,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        },
+        {
+	       	"name": "King Land",
+        	"image": "img/image-12.jpg",
+        	"price": 720,
+        	"popularity": 6,
+        	"description": "University of Minnesota, Twin Cities Minneapolis, MN"
+        }
+    ]
+}
